@@ -4,18 +4,26 @@ import axios from 'axios'
 
 const Home = () => {
 
-	const [USD, setUSD] = useState('')
-	const [currency, setCurrency] = useState('')
+	const [USD, setUSD] = useState([])
+	const [currency, setCurrency] = useState([])
+	const [error, setError] = useState([])
 
 
 	useEffect(() => {
 
 		const getData = async () => {
-			const { data } = await axios.get('https://v6.exchangerate-api.com/v6/df125311940707489475a75a/latest/USD')
-			console.log('DATA', data)
+			try {
+			const { data } = await axios.get('https://v6.exchangerate-api.com/v6/df125311940707489475a75a/latest/currency')
+			// console.log('DATA', data)
+			setUSD(data)
+			} catch {
+
+			setError(true)
+			console.log('Error', error)	
 		}
+	}
 		getData()
-	})
+	}, [])
 
   const handleChange = (event) => {
 		setUSD (event.target.value)
@@ -63,3 +71,4 @@ const Home = () => {
 }
 
 export default Home
+
