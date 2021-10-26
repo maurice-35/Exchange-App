@@ -4,51 +4,59 @@ import axios from 'axios'
 
 const Home = () => {
 
-	const [USD, setUSD] = useState([])
-	const [currency, setCurrency] = useState([])
-	const [error, setError] = useState([])
+	const [currencies, setCurrencies] = useState([])
+	const [hasError, setHasError] = useState()
 
 
 	useEffect(() => {
 
 		const getData = async () => {
 			try {
-			const { data } = await axios.get('https://v6.exchangerate-api.com/v6/df125311940707489475a75a/latest/currency')
+			const { data } = await axios.get('https://api.coinbase.com/v2/currencies')
 			// console.log('DATA', data)
-			setUSD(data)
+			setCurrencies(data)
 			} catch {
 
-			setError(true)
-			console.log('Error', error)	
+			setHasError(true)
+			console.log('Error', hasError)	
 		}
 	}
 		getData()
-	}, [])
+	}, )
 
   const handleChange = (event) => {
-		setUSD (event.target.value)
-		setCurrency (event.target.value)
+		setCurrencies (event.target.value)
 	}
+
+	
 
 	return (
 		<>
 			<div className="container">
+
+				{currencies ?
 				<div className="field" id="first">
+					<h2 className="title has-text-centered">{currencies.name}</h2>
 					<form className="column is-half is-offset-half box">
-						<select value={USD} onChange={handleChange}>
+						<select value={currencies.name} onChange={handleChange}>
 							<option value="USD">USD</option>
 							<option value="GBP">GBP</option>
 							<option value="EUR">EUR</option>
 						</select>
 					</form>
 					<form>
-						<select value={currency} onChange={handleChange}>
+						<select value={currencies.name} onChange={handleChange}>
 							<option value="USD">USD</option>
 							<option value="GBP">GBP</option>
 							<option value="EUR">EUR</option>
 						</select>
 					</form>
 				</div>
+				:
+				<h2 className="title has-text-centered">
+					{hasError ? 'Oh something went wrong, the sadness 😞' : '...loading 📀'}
+				</h2>
+			}
 			</div>
 			<div className="container">
 				<div className="field">
