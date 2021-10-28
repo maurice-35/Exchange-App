@@ -1,13 +1,17 @@
 import React from 'react'
-import Home from './components/common/Home'
-
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Home from './components/Home'
+import NavBar from './components/NavBar'
 const App = () => {
 
-  return(
-    <>
-    <h3>Currency Exchange</h3>
-    <Home />
-    </>
+  return (
+
+    <BrowserRouter>
+      <NavBar />
+      <Switch>
+        <Route path="/" component={Home} />
+      </Switch>
+    </BrowserRouter>
   )
 }
 
