@@ -1,6 +1,5 @@
 import React from 'react'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Navbar, Container, Offcanvas, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
 
 
@@ -14,7 +13,15 @@ const NavBar = () => {
 		<>
 			<Navbar bg="light" expand={false}>
 				<Container fluid>
-					<Navbar.Brand href="#">Exchange Rates</Navbar.Brand>
+				<diV>
+					<Link to="/#home">Exchange Rates</Link>
+				</diV>
+				<diV>
+					<Link to="/login">Login</Link>
+				</diV>
+				<diV>
+					<Link to="/register">Register</Link>
+				</diV>
 					<Navbar.Toggle aria-controls="offcanvasNavbar" />
 					<Navbar.Offcanvas
 						id="offcanvasNavbar"
@@ -49,8 +56,11 @@ const NavBar = () => {
 						</Offcanvas.Body>
 					</Navbar.Offcanvas>
 				</Container>
-			</Navbar>
-		</>
+				</Navbar>
+			</>
 	)
 }
+
 export default NavBar
+			
+
