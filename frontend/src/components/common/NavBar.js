@@ -33,7 +33,7 @@ const NavBar = () => {
 									<NavDropdown.Item href="#more">More</NavDropdown.Item>
 									<NavDropdown.Divider />
 									<NavDropdown.Item href="#markets rates">
-										Market rates
+										Market Rates
 									</NavDropdown.Item>
 								</NavDropdown>
 							</Nav>
