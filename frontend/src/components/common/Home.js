@@ -13,7 +13,7 @@ return (
         <div className="container">
           <h1 className="title">
             <span className="logo-emoji" role="img" aria-label="logo">฿</span>
-            Exchange Rate
+            Exchange Rates
             <span className="logo-emoji" role="img" aria-label="logo">฿</span>
           </h1>
         </div>

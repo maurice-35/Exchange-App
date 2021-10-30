@@ -14,7 +14,10 @@ const NavBar = () => {
 			<Navbar bg="light" expand={false}>
 				<Container fluid>
 				<diV>
-					<Link to="/#home">Exchange Rates</Link>
+					<Link to="/#home">฿฿</Link>
+				</diV>
+				<diV>
+					<Link to="/currencies/:id">Exchange Rates</Link>
 				</diV>
 				<diV>
 					<Link to="/login">Login</Link>
@@ -60,6 +63,7 @@ const NavBar = () => {
 			</>
 	)
 }
+
 
 export default NavBar
 			
