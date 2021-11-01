@@ -1,15 +1,12 @@
 import axios from 'axios'
 import { useState, React, useEffect } from 'react'
-import { Card, ListGroup, Form, FloatingLabel, Col } from 'react-bootstrap'
-import CurrencyIndex from '../currencies/CurrencyIndex'
+// import { Form, FloatingLabel, Col } from 'react-bootstrap'
 
 
 
 const CurrencyShow = () => {
 	const [currencies, setCurrencies] = useState([])
-	const [formInfo, setFormInfo] = useState([])
-	const [show, setShow] = useState(false)
-  const handleClose = () => setShow(false)
+
 
 	useEffect(() => {
 		const getData = async () => {
@@ -25,47 +22,31 @@ const CurrencyShow = () => {
 		getData()
 	}, [])
 
-	const openForm = e => {
-		const userInput = e.target.id
-		const filterArray = currencies.filter(currency => userInput === currency.id)
-		setFormInfo(filterArray)
-		setShow(true)
-	}
-
 
 	return (
-		<>
-			<Col md>
-				<FloatingLabel controlId="floatingInputGrid" label="currency">
-					<Form.Control type="text" placeholder="currency" />
-				</FloatingLabel>
-			</Col>
-			<Col md>
-				<FloatingLabel controlId="floatingSelectGrid" label="Your currency">
-					<Form.Select aria-label="Floating label select example">
-						<option>Select a currencies</option>
-						<option value="1">USD</option>
-						<option value="2">GBP</option>
-						<option value="3">EUR</option>
-					</Form.Select>
-				</FloatingLabel>
-			</Col>
-			<Card style={{ width: '18rem' }}>
-				<ListGroup variant="flush">
-					{formInfo.map(info =>
-					<CurrencyIndex
-					show={show}
-					handleClose={handleClose}
-					key={info.id}
-					name={info.name}
-					openForm={openForm}
-					/>)}
-					<ListGroup.Item>Currency</ListGroup.Item>
-					<ListGroup.Item>Currency</ListGroup.Item>
-					<ListGroup.Item>Currency</ListGroup.Item>
-				</ListGroup>
-			</Card>
-		</>
+		<div container className="field">
+			<form className="from">
+				<label for="currency">Select a currency from:</label>
+				<select id="currencies" name="currencies">
+					<option value="currencies">currencies</option>
+				</select>
+			</form>
+			<form className="to">
+				<label for="currency">Select a currency to:</label>
+				<select id="currencies" name="currencies">
+					<option value="currencies">currencies</option>
+				</select>
+			</form>
+			<div>
+				<form>
+					<div id="tofrom2">
+						<span className="result">result</span>
+						<input className="to" value="currency" type="hidden" />
+						<input name="answer" value="" />
+					</div>
+				</form>
+			</div>
+		</div>
 	)
 }
 

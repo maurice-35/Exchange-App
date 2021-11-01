@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 import Home from './components/common/Home'
-import NavBar from './components/common/NavBar'
+import Navigator from './components/common/Navigator'
 import CurrencyEdit from './components/currencies/CurrencyEdit'
 import CurrencyIndex from './components/currencies/CurrencyIndex'
 import CurrencyShow from './components/currencies/CurrencyShow'
@@ -12,7 +12,7 @@ const App = () => {
   return (
 
     <BrowserRouter>
-      <NavBar />
+      <Navigator />
       <Switch>
         <Route path="/Login" component={Login} />
         <Route path="/Login" component={Login} />

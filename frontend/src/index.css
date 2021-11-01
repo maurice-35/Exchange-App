@@ -29,6 +29,9 @@ body {
 	flex-direction: row;
 }
 
-#first {
-	background-color: blue;
+form.from {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+
 }

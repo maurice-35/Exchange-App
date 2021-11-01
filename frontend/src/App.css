@@ -1,13 +1,37 @@
-/* body {
+body {
 	position: relative;
 	display: flex;
 	color-scheme: green;
 }
 
+.field {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .title {
 	display: flex;
 	justify-content: space-between;
-} */
+}
+
+.from {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.to {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+#tofrom2 {
+    display: flex;
+    justify-content: center;
+ 
+}
 
 /* .App {
   text-align: center;

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Navbar, Container, Offcanvas, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
 
 
-const NavBar = () => {
+const Navigator = () => {
 
 
 
@@ -13,18 +13,18 @@ const NavBar = () => {
 		<>
 			<Navbar bg="light" expand={false}>
 				<Container fluid>
-				<diV>
-					<Link to="/#home">฿฿</Link>
-				</diV>
-				<diV>
-					<Link to="/currencies/:id">Exchange Rates</Link>
-				</diV>
-				<diV>
-					<Link to="/login">Login</Link>
-				</diV>
-				<diV>
-					<Link to="/register">Register</Link>
-				</diV>
+						<diV>
+							<Link to="/#Home">฿฿</Link>
+						</diV>
+						<diV>
+							<Link to="/Currencies/:id">Exchange Rates</Link>
+						</diV>
+						<diV>
+							<Link to="/Login">Login</Link>
+						</diV>
+						<diV>
+							<Link to="/Register">Register</Link>
+						</diV>
 					<Navbar.Toggle aria-controls="offcanvasNavbar" />
 					<Navbar.Offcanvas
 						id="offcanvasNavbar"
@@ -37,10 +37,10 @@ const NavBar = () => {
 						<Offcanvas.Body>
 							<Nav className="justify-content-end flex-grow-1 pe-3">
 								<Nav.Link href="#currencies">Currencies</Nav.Link>
-								<Nav.Link href="#rates">Rates</Nav.Link>
+								<Nav.Link href="#Rates">Rates</Nav.Link>
 								<NavDropdown title="Dropdown" id="offcanvasNavbarDropdown">
-									<NavDropdown.Item href="#converter">Converter</NavDropdown.Item>
-									<NavDropdown.Item href="#more">More</NavDropdown.Item>
+									<NavDropdown.Item href="#Converter">Converter</NavDropdown.Item>
+									<NavDropdown.Item href="#More">More</NavDropdown.Item>
 									<NavDropdown.Divider />
 									<NavDropdown.Item href="#markets rates">
 										Market Rates
@@ -59,10 +59,10 @@ const NavBar = () => {
 						</Offcanvas.Body>
 					</Navbar.Offcanvas>
 				</Container>
-				</Navbar>
-			</>
+			</Navbar>
+		</>
 	)
 }
 
 
-export default NavBar
+export default Navigator
