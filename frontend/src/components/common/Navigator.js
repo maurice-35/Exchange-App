@@ -13,18 +13,18 @@ const Navigator = () => {
 		<>
 			<Navbar bg="light" expand={false}>
 				<Container fluid>
-						<diV>
+						<div>
 							<Link to="/#Home">฿฿</Link>
-						</diV>
-						<diV>
+						</div>
+						<div>
 							<Link to="/Currencies/:id">Exchange Rates</Link>
-						</diV>
-						<diV>
+						</div>
+						<div>
 							<Link to="/Login">Login</Link>
-						</diV>
-						<diV>
+						</div>
+						<div>
 							<Link to="/Register">Register</Link>
-						</diV>
+						</div>
 					<Navbar.Toggle aria-controls="offcanvasNavbar" />
 					<Navbar.Offcanvas
 						id="offcanvasNavbar"

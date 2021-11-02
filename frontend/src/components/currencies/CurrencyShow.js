@@ -1,6 +1,6 @@
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useState, React, useEffect } from 'react'
-// import { Form, FloatingLabel, Col } from 'react-bootstrap'
+
 
 
 
@@ -13,8 +13,8 @@ const CurrencyShow = () => {
 			try {
 				const { data } = await axios.get('https://api.coinbase.com/v2/currencies')
 				// console.log('DATA', data)
-				const onDisplay = data.filter(item => item.onDisplay)
-				setCurrencies(onDisplay)
+				setCurrencies(data)
+				displayCurrencies()
 			} catch (err) {
 				console.log('Error', err)
 			}
@@ -22,31 +22,47 @@ const CurrencyShow = () => {
 		getData()
 	}, [])
 
+	console.log('currencies on state', currencies)
+
+	function displayCurrencies() {
+		const currenciesHTMLArray = currencies.map(currency => {
+			return `<h2>${currency.name}</h2>`
+		})
+		console.log('currenciesHTMLArray', currenciesHTMLArray)
+	}
 
 	return (
-		<div container className="field">
+		<section>
 			<form className="from">
 				<label for="currency">Select a currency from:</label>
 				<select id="currencies" name="currencies">
-					<option value="currencies">currencies</option>
+					<option
+						value={displayCurrencies}>currencies
+					</option>
 				</select>
+				<div className="image1">
+					<img src="https://res.cloudinary.com/doe5zwesw/image/upload/v1635842813/Exchange/GB_flag_u8uymw.png" alt="GBP" />
+				</div>
 			</form>
 			<form className="to">
 				<label for="currency">Select a currency to:</label>
 				<select id="currencies" name="currencies">
 					<option value="currencies">currencies</option>
 				</select>
+				<div>
+					<img src="https://res.cloudinary.com/doe5zwesw/image/upload/v1635889813/Exchange/flag_US_e8yhen.png" alt="US" />
+				</div>
 			</form>
 			<div>
 				<form>
 					<div id="tofrom2">
 						<span className="result">result</span>
 						<input className="to" value="currency" type="hidden" />
-						<input name="answer" value="" />
+						<input name="answer" value="rate" />
 					</div>
 				</form>
 			</div>
-		</div>
+		</section>
 	)
 }
 

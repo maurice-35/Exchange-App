@@ -14,9 +14,8 @@ const App = () => {
     <BrowserRouter>
       <Navigator />
       <Switch>
-        <Route path="/Login" component={Login} />
-        <Route path="/Login" component={Login} />
-        <Route path="/Register" component={Register} />
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
         <Route path="/currencies/:id" component={CurrencyShow} />
         <Route path="/currencies" component={CurrencyEdit} />
         <Route path="/currencies" component={CurrencyIndex} />

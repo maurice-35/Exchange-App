@@ -22,16 +22,35 @@ body {
 	position: relative;
 }
 
-.container {
+/* .container {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: row;
-}
+} */
 
 form.from {
 	display: flex;
-	flex-direction: row;
-	justify-content: center;
+	/* flex-direction: row; */
+	justify-content: space-around;
+  align-items: center;
 
+}
+
+form.to {
+	display: flex;
+	/* flex-direction: row; */
+	justify-content: space-around;
+  align-items: center;
+}
+
+  #tofrom2{
+	display: flex;
+	/* flex-direction: row; */
+	justify-content: space-around;
+  align-items: center;
+}
+
+.image1 {
+	max-width: 70px;
 }
