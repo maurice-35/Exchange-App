@@ -32,7 +32,7 @@ const CurrencyShow = () => {
 	}
 
 	return (
-		<section>
+		<section className="container">
 			<form className="from">
 				<label for="currency">Select a currency from:</label>
 				<select id="currencies" name="currencies">
@@ -43,7 +43,7 @@ const CurrencyShow = () => {
 				<div className="image1">
 					<img src="https://res.cloudinary.com/doe5zwesw/image/upload/v1635842813/Exchange/GB_flag_u8uymw.png" alt="GBP" />
 				</div>
-			</form>
+			</form><br />
 			<form className="to">
 				<label for="currency">Select a currency to:</label>
 				<select id="currencies" name="currencies">
@@ -53,10 +53,10 @@ const CurrencyShow = () => {
 					<img src="https://res.cloudinary.com/doe5zwesw/image/upload/v1635889813/Exchange/flag_US_e8yhen.png" alt="US" />
 				</div>
 			</form>
-			<div>
+			<div><br />
 				<form>
 					<div id="tofrom2">
-						<span className="result">result</span>
+						<span className="result">current rate:</span>
 						<input className="to" value="currency" type="hidden" />
 						<input name="answer" value="rate" />
 					</div>
