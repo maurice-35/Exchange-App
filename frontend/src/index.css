@@ -1,17 +1,3 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
-
 *{
 	box-sizing: border-box;
 	margin: 0;
@@ -28,19 +14,21 @@ img {
 
 body {
 	position: relative;
+	background-color: #844366;
 }
 
 .container {
-	padding-top: 30px;
-	/* display: flex; */
-	/* align-items: center; */
-	/* justify-content: center; */
-	/* flex-direction: row; */
+	position: relative;
+	/* padding-top: 30px; */
+	margin: 20px auto;
+	background-color: rgb(199, 146, 146);
+	padding: 15px 35px;
+	border-radius: 20px;
+	width: 490px;
 }
 
 form.from {
 	display: flex;
-	/* flex-direction: row; */
 	justify-content: space-around;
   align-items: center;
 
@@ -48,14 +36,12 @@ form.from {
 
 form.to {
 	display: flex;
-	/* flex-direction: row; */
 	justify-content: space-around;
   align-items: center;
 }
 
   #tofrom2{
 	display: flex;
-	/* flex-direction: row; */
 	justify-content: space-around;
   align-items: center;
 }
