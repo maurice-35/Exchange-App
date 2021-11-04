@@ -18,6 +18,14 @@ code {
 	padding: 0;
 }
 
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+img {
+	max-width: 100%;
+}
+
 body {
 	position: relative;
 }
