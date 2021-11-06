@@ -33,6 +33,7 @@ const CurrencyShow = () => {
 
 	return (
 		<section className="container">
+			<h3>Currency Converter</h3>
 			<form className="from">
 				<label for="currency">Select a currency from:</label>
 				<select id="currencies" name="currencies">
