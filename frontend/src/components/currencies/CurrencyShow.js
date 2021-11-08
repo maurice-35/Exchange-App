@@ -1,26 +1,27 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
+import CurrencyIndex from './CurrencyIndex'
 
 
 
 
 const CurrencyShow = () => {
-	const [currencies, setCurrencies] = useState([])
+	const [currencies, setCurrencies] = useState('')
 
 
 	useEffect(() => {
 		const getData = async () => {
 			try {
-				const { data } = await axios.get('https://api.coinbase.com/v2/currencies')
+				// const { data } = await axios.get('https://api.exchangerate.host/latest')
 				// console.log('DATA', data)
-				setCurrencies(data)
+				setCurrencies()
 				displayCurrencies()
 			} catch (err) {
 				console.log('Error', err)
 			}
 		}
 		getData()
-	}, [])
+	}, )
 
 	console.log('currencies on state', currencies)
 
@@ -34,11 +35,12 @@ const CurrencyShow = () => {
 	return (
 		<section className="container">
 			<h3>Currency Converter</h3>
+			<div className="forms">
 			<form className="from">
 				<label for="currency">Select a currency from:</label>
 				<select id="currencies" name="currencies">
 					<option
-						value={displayCurrencies}>currencies
+						value={CurrencyIndex}>currencies
 					</option>
 				</select>
 				<div className="image1">
@@ -62,6 +64,7 @@ const CurrencyShow = () => {
 						<input name="answer" value="rate" />
 					</div>
 				</form>
+				</div>
 			</div>
 		</section>
 	)

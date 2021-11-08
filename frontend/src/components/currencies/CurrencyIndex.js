@@ -8,7 +8,7 @@ const CurrencyIndex = () => {
 
 	return (
 		<>
-			<h1>Currency Index</h1>
+		<hi>Currency Index</hi>
 		</>
 	)
 }
