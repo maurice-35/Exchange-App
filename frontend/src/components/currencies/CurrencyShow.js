@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react'
-// import axios from 'axios'
+import axios from 'axios'
 import CurrencyIndex from './CurrencyIndex'
 
 
 
 
 const CurrencyShow = () => {
-	const [currencies, setCurrencies] = useState('')
+	const [latest, setLatest] = useState('')
 
 
 	useEffect(() => {
 		const getData = async () => {
 			try {
-				// const { data } = await axios.get('https://api.exchangerate.host/latest')
-				// console.log('DATA', data)
-				setCurrencies()
-				displayCurrencies()
+				const { data } = await axios.get('https://api.exchangerate.host/latest')
+				console.log('DATA', data)
+				setLatest(data)
+				// displayCurrencies()
 			} catch (err) {
 				console.log('Error', err)
 			}
@@ -23,14 +23,14 @@ const CurrencyShow = () => {
 		getData()
 	}, )
 
-	console.log('currencies on state', currencies)
+	console.log('latest currencies on state', latest)
 
-	function displayCurrencies() {
-		const currenciesHTMLArray = currencies.map(currency => {
-			return `<h2>${currency.name}</h2>`
-		})
-		console.log('currenciesHTMLArray', currenciesHTMLArray)
-	}
+	// function displayCurrencies() {
+	// 	const currenciesHTMLArray = currencies.map(currency => {
+	// 		return `<h2>${currency.name}</h2>`
+	// 	})
+	// 	console.log('currenciesHTMLArray', currenciesHTMLArray)
+	// }
 
 	return (
 		<section className="container">
