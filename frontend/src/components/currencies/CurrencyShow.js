@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import CurrencyIndex from './CurrencyIndex'
 
 
 
 
 const CurrencyShow = () => {
-	const [latest, setLatest] = useState('')
+	const [latest, setLatest] = useState([])
 
 
 	useEffect(() => {
@@ -15,32 +14,33 @@ const CurrencyShow = () => {
 				const { data } = await axios.get('https://api.exchangerate.host/latest')
 				console.log('DATA', data)
 				setLatest(data)
-				// displayCurrencies()
 			} catch (err) {
 				console.log('Error', err)
 			}
 		}
 		getData()
-	}, )
+	}, [latest])
 
 	console.log('latest currencies on state', latest)
 
-	// function displayCurrencies() {
-	// 	const currenciesHTMLArray = currencies.map(currency => {
-	// 		return `<h2>${currency.name}</h2>`
-	// 	})
-	// 	console.log('currenciesHTMLArray', currenciesHTMLArray)
-	// }
 
 	return (
 		<section className="container">
 			<h3>Currency Converter</h3>
 			<div className="forms">
+				<div className="from">
+					
+				<input type="text" value={"from"} />
+				<input type="text" value={"to"} />
+				<button>Convert</button>
+				</div>
+			</div>
+			<div className="forms">
 			<form className="from">
 				<label for="currency">Select a currency from:</label>
 				<select id="currencies" name="currencies">
 					<option
-						value={CurrencyIndex}>currencies
+						value="currencies">
 					</option>
 				</select>
 				<div className="image1">
