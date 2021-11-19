@@ -19,7 +19,7 @@ const CurrencyShow = () => {
 			}
 		}
 		getData()
-	}, [latest])
+	}, [])
 
 	console.log('latest currencies on state', latest)
 
@@ -27,14 +27,14 @@ const CurrencyShow = () => {
 	return (
 		<section className="container">
 			<h3>Currency Converter</h3>
-			<div className="forms">
+			{/* <div className="forms">
 				<div className="from">
 					
 				<input type="text" value={"from"} />
 				<input type="text" value={"to"} />
 				<button>Convert</button>
 				</div>
-			</div>
+			</div> */}
 			<div className="forms">
 			<form className="from">
 				<label for="currency">Select a currency from:</label>
