@@ -3,19 +3,20 @@ import React from 'react'
 
 const CurrencyIndex = props => {
 
-	const {
-		currencyOptions
-	} = props
+	const {currencyOptions, selectedCurrency, amount} = props
+		
 
 	return (
-		<div>
-			<input type="number" className="from" />
-			<select className="select">
-				{currencyOptions.map(option => (
-					<option value={option}>{option}</option>
-				))}
-			</select>
-		</div>
+		<>
+			<div>
+				<input type="number" className="from" value={amount} />
+				<select className="select" value={selectedCurrency} >
+					{currencyOptions.map(option => (
+						<option key={option} value={option}>{option}</option>
+					))}
+				</select>
+			</div>
+		</>
 	)
 }
 

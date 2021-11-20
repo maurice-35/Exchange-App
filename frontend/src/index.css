@@ -14,19 +14,13 @@ body {
 	margin: 20px auto;
 	background-color: rgb(199, 146, 146);
 	padding: 15px 35px;
-	border-radius: 20px;
+	border-radius: 1.5em;
 	width: 500px;
 }
 
-h3 {
-	margin: 0;
-	margin-bottom: .5rem;
-	font-size: 4em;
-}
 
 .from {
 	width: 10em;
-	/* padding: .3rem; */
 	border: .3rem solid brown;
 	border-radius: .5em;
 }
@@ -35,32 +29,16 @@ h3 {
 	margin-left: 1rem;
 }
 
+
 .forms {
 	display: grid;
 	align-items: center;
 	justify-content: center;
-	margin-top: 10em;
+	margin-top: 6em;
 	border: 5px solid rgb(133, 47, 47);
+	padding-top: 2.5em;
 }
 
-form.from {
-	display: flex;
-	justify-content: space-around;
-  align-items: center;
-
-}
-
-form.to {
-	display: flex;
-	justify-content: space-around;
-  align-items: center;
-}
-
-  #tofrom2{
-	display: flex;
-	justify-content: space-around;
-  align-items: center;
-}
 
 .image1 {
 	max-width: 20%;
@@ -72,6 +50,7 @@ form.to {
 	font-family: sans-serif;
 	display: flex;
 	justify-content: center;
+	font-size: 2em;
 }
 
 
