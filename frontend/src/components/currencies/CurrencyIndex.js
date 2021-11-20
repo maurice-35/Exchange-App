@@ -1,17 +1,24 @@
-import React from "react"
+import React from 'react'
 
 
-const CurrencyIndex = () => {
+const CurrencyIndex = props => {
 
-
-
+	const {
+		currencyOptions
+	} = props
 
 	return (
-		<>
-		<h1>Currency Index</h1>
-		</>
+		<div>
+			<input type="number" className="from" />
+			<select className="select">
+				{currencyOptions.map(option => (
+					<option value={option}>{option}</option>
+				))}
+			</select>
+		</div>
 	)
 }
+
 
 export default CurrencyIndex
 

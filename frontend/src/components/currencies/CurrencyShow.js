@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react'
+import CurrencyIndex from './CurrencyIndex'
 import axios from 'axios'
 
 
 
 
 const CurrencyShow = () => {
-	const [latest, setLatest] = useState([])
+	const [currencyOptions, setCurrencyOptions] = useState([])
 
 
 	useEffect(() => {
-		const getData = async () => {
+		const getData
+	 = async () => {
 			try {
 				const { data } = await axios.get('https://api.exchangerate.host/latest')
-				console.log('DATA', data)
-				setLatest(data)
+				// console.log('DATA', data)
+				setCurrencyOptions([data.base, ...Object.keys(data.rates)])
 			} catch (err) {
 				console.log('Error', err)
 			}
@@ -21,37 +23,25 @@ const CurrencyShow = () => {
 		getData()
 	}, [])
 
-	console.log('latest currencies on state', latest)
+	console.log(currencyOptions)
+
 
 
 	return (
 		<section className="container">
 			<h3>Currency Converter</h3>
-			{/* <div className="forms">
-				<div className="from">
-					
-				<input type="text" value={"from"} />
-				<input type="text" value={"to"} />
-				<button>Convert</button>
-				</div>
-			</div> */}
+			
 			<div className="forms">
-			<form className="from">
-				<label for="currency">Select a currency from:</label>
-				<select id="currencies" name="currencies">
-					<option
-						value="currencies">
-					</option>
-				</select>
+				from<CurrencyIndex 
+				currencyOptions={currencyOptions}
+				/> 
 				<div className="image1">
 					<img src="https://res.cloudinary.com/doe5zwesw/image/upload/v1635842813/Exchange/GB_flag_u8uymw.png" alt="GBP" />
 				</div>
-			</form><br />
 			<form className="to">
-				<label for="currency">Select a currency to:</label>
-				<select id="currencies" name="currencies">
-					<option value="currencies">currencies</option>
-				</select>
+				to<CurrencyIndex 
+				currencyOptions={currencyOptions}
+				/>
 				<div>
 					<img src="https://res.cloudinary.com/doe5zwesw/image/upload/v1635889813/Exchange/flag_US_e8yhen.png" alt="US" />
 				</div>
