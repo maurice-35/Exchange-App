@@ -11,9 +11,16 @@ const CurrencyShow = () => {
 	const [toCurrency, setToCurrency] = useState()
 	const [exchangeRate, setExchangeRate] = useState()
 	const [amount, setAmount] = useState()
+	const [amountOfFromCurrency, setAmountOfFromcurrency] = useState(true)
 
-
-	
+	let toAmount, fromAmount
+	if (amountOfFromCurrency) {
+		fromAmount = amount
+		toAmount = amount + exchangeRate
+	} else {
+		toAmount = amount
+		fromAmount = amount / exchangeRate
+	}
 
 
 	useEffect(() => {
@@ -35,26 +42,50 @@ const CurrencyShow = () => {
 		getData()
 	}, [])
 
-	console.log(currencyOptions)
+	// console.log(currencyOptions)
 
 	// console.log('Exchange', exchangeRate)
+
+	useEffect(() => {
+		if (fromCurrency != null && toCurrency != null) {
+		axios.get(`$(https://api.exchangerate.host/latest)?base=${fromCurrency}&symbols=${toCurrency}`)
+		.then(res => res.json())
+		.then(data => setExchangeRate(data.rates[toCurrency]))
+		}
+	}, [fromCurrency, toCurrency])
+
+	function handleFromAmountChange(e) {
+		setAmount(e.target.value)
+		setAmountOfFromcurrency(true)
+	}
+
+	function handleToAmountChange(e) {
+		setAmount(e.target.value)
+		setAmountOfFromcurrency(false)
+	}
 
 
 	return (
 		<section className="container">
 			<h3>Currency Converter</h3>
-
 			<div className="forms">
 				<CurrencyIndex
 					currencyOptions={currencyOptions}
 					selectedCurrency = {fromCurrency}
+					handleOnChangeCurrency={e => setFromCurrency(e.target.value)}
+					handleOnChangeAmount={handleFromAmountChange}
+					amount = {fromAmount}
 				/>
 				<div className="image1">
 					<img src="https://res.cloudinary.com/doe5zwesw/image/upload/v1635842813/Exchange/GB_flag_u8uymw.png" alt="GBP" />
 				</div>
+
 					<CurrencyIndex
 						currencyOptions={currencyOptions}
 						selectedCurrency = {toCurrency}
+						handleOnChangeCurrency={e => setToCurrency(e.target.value)}
+						handleOnChangeAmount={handleToAmountChange}
+						amount = {toAmount}
 					/>
 					<div>
 						<img src="https://res.cloudinary.com/doe5zwesw/image/upload/v1635889813/Exchange/flag_US_e8yhen.png" alt="US" />
