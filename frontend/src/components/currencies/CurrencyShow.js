@@ -42,18 +42,8 @@ const CurrencyShow = () => {
 		getData()
 	}, [])
 
-	// console.log(currencyOptions)
 
-	// console.log('Exchange', exchangeRate)
-
-	useEffect(() => {
-		if (fromCurrency != null && toCurrency != null) {
-		axios.get(`$(https://api.exchangerate.host/latest)?base=${fromCurrency}&symbols=${toCurrency}`)
-		.then(res => res.json())
-		.then(data => setExchangeRate(data.rates[toCurrency]))
-		}
-	}, [fromCurrency, toCurrency])
-
+	
 	function handleFromAmountChange(e) {
 		setAmount(e.target.value)
 		setAmountOfFromcurrency(true)
