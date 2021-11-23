@@ -11,6 +11,7 @@ const CurrencyShow = () => {
 	const [toCurrency, setToCurrency] = useState()
 	const [exchangeRate, setExchangeRate] = useState()
 	const [amount, setAmount] = useState()
+	const [rate, setRate] = useState()
 	const [amountOfFromCurrency, setAmountOfFromcurrency] = useState(true)
 
 	let toAmount, fromAmount
@@ -34,6 +35,7 @@ const CurrencyShow = () => {
 					setFromCurrency(data.base)
 					setToCurrency(firstCurrency)
 					setExchangeRate(data.rates[firstCurrency])
+					// setRate(data`(${fromCurrency}, ${toCurrency})`)
 				} catch (err) {
 					// console.log('Error', err)
 					
@@ -54,6 +56,11 @@ const CurrencyShow = () => {
 		setAmountOfFromcurrency(false)
 	}
 
+	function handleRateChange() {
+	setRate({handleToAmountChange})
+	}
+
+
 
 	return (
 		<section className="container">
@@ -64,6 +71,7 @@ const CurrencyShow = () => {
 					selectedCurrency = {fromCurrency}
 					handleOnChangeCurrency={e => setFromCurrency(e.target.value)}
 					handleOnChangeAmount={handleFromAmountChange}
+					handleOnChangeRate={handleRateChange}
 					amount = {fromAmount}
 				/>
 				<div className="image1">
@@ -85,7 +93,7 @@ const CurrencyShow = () => {
 						<div id="tofrom2">
 							<span className="result">current rate:</span>
 							<input className="to" value="currency" type="hidden" />
-							<input name="answer" value="rate" />
+							<input name="answer" value={rate} />
 						</div>
 					</form>
 				</div>
