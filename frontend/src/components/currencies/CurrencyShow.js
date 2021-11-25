@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import CurrencyIndex from './CurrencyIndex'
 import axios from 'axios'
+import ExchangeRate from '../currencies/ExchangeRate'
 
 
 
@@ -11,7 +12,6 @@ const CurrencyShow = () => {
 	const [toCurrency, setToCurrency] = useState()
 	const [exchangeRate, setExchangeRate] = useState()
 	const [amount, setAmount] = useState()
-	const [rate, setRate] = useState()
 	const [amountOfFromCurrency, setAmountOfFromcurrency] = useState(true)
 
 	let toAmount, fromAmount
@@ -35,17 +35,16 @@ const CurrencyShow = () => {
 					setFromCurrency(data.base)
 					setToCurrency(firstCurrency)
 					setExchangeRate(data.rates[firstCurrency])
-					// setRate(data`(${fromCurrency}, ${toCurrency})`)
 				} catch (err) {
 					// console.log('Error', err)
-					
+
 				}
 			}
 		getData()
 	}, [])
 
 
-	
+
 	function handleFromAmountChange(e) {
 		setAmount(e.target.value)
 		setAmountOfFromcurrency(true)
@@ -56,11 +55,6 @@ const CurrencyShow = () => {
 		setAmountOfFromcurrency(false)
 	}
 
-	function handleRateChange() {
-	setRate({handleToAmountChange})
-	}
-
-
 
 	return (
 		<section className="container">
@@ -68,34 +62,34 @@ const CurrencyShow = () => {
 			<div className="forms">
 				<CurrencyIndex
 					currencyOptions={currencyOptions}
-					selectedCurrency = {fromCurrency}
+					selectedCurrency={fromCurrency}
 					handleOnChangeCurrency={e => setFromCurrency(e.target.value)}
 					handleOnChangeAmount={handleFromAmountChange}
-					handleOnChangeRate={handleRateChange}
-					amount = {fromAmount}
+					amount={fromAmount}
 				/>
 				<div className="image1">
 					<img src="https://res.cloudinary.com/doe5zwesw/image/upload/v1635842813/Exchange/GB_flag_u8uymw.png" alt="GBP" />
 				</div>
 
-					<CurrencyIndex
-						currencyOptions={currencyOptions}
-						selectedCurrency = {toCurrency}
-						handleOnChangeCurrency={e => setToCurrency(e.target.value)}
-						handleOnChangeAmount={handleToAmountChange}
-						amount = {toAmount}
-					/>
-					<div>
-						<img src="https://res.cloudinary.com/doe5zwesw/image/upload/v1635889813/Exchange/flag_US_e8yhen.png" alt="US" />
-					</div>
+				<CurrencyIndex
+					currencyOptions={currencyOptions}
+					selectedCurrency={toCurrency}
+					handleOnChangeCurrency={e => setToCurrency(e.target.value)}
+					handleOnChangeAmount={handleToAmountChange}
+					amount={toAmount}
+				/>
 				<div>
-					<form>
-						<div id="tofrom2">
-							<span className="result">current rate:</span>
-							<input className="to" value="currency" type="hidden" />
-							<input name="answer" value={rate} />
-						</div>
-					</form>
+					<img src="https://res.cloudinary.com/doe5zwesw/image/upload/v1635889813/Exchange/flag_US_e8yhen.png" alt="US" />
+				</div>
+				<div>
+					<ExchangeRate
+						currencyOptions={currencyOptions}
+						selectedCurrency={fromCurrency}
+						handleOnChangeCurrency={e => setFromCurrency(e.target.value)}
+						handleOnChangeAmount={handleFromAmountChange}
+						amount={fromAmount}
+
+					/>
 				</div>
 			</div>
 		</section>
