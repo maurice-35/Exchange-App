@@ -24,6 +24,7 @@ const CurrencyShow = () => {
 	}
 
 
+
 	useEffect(() => {
 		const getData
 			= async () => {
@@ -63,23 +64,25 @@ const CurrencyShow = () => {
 				<CurrencyIndex
 					currencyOptions={currencyOptions}
 					selectedCurrency={fromCurrency}
+					currencyFlag={fromCurrency}
 					handleOnChangeCurrency={e => setFromCurrency(e.target.value)}
 					handleOnChangeAmount={handleFromAmountChange}
 					amount={fromAmount}
 				/>
 				<div className="image1">
-					<img src="https://res.cloudinary.com/doe5zwesw/image/upload/v1635842813/Exchange/GB_flag_u8uymw.png" alt="GBP" />
+					<img src="http://www.geonames.org/flags/l/uk.gif" alt="GBP" />
 				</div>
 
 				<CurrencyIndex
 					currencyOptions={currencyOptions}
 					selectedCurrency={toCurrency}
+					currencyFlag={toCurrency}
 					handleOnChangeCurrency={e => setToCurrency(e.target.value)}
 					handleOnChangeAmount={handleToAmountChange}
 					amount={toAmount}
 				/>
-				<div>
-					<img src="https://res.cloudinary.com/doe5zwesw/image/upload/v1635889813/Exchange/flag_US_e8yhen.png" alt="US" />
+				<div className="image1">
+					<img src="http://www.geonames.org/flags/l/us.gif" alt="US" />
 				</div>
 				<div>
 					<ExchangeRate
