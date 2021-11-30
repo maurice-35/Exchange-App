@@ -30,7 +30,6 @@ const CurrencyShow = () => {
 			= async () => {
 				try {
 					const { data } = await axios.get('https://api.exchangerate.host/latest')
-					// console.log('DATA', data)
 					const firstCurrency = Object.keys(data.rates)[0]
 					setCurrencyOptions([data.base, ...Object.keys(data.rates)])
 					setFromCurrency(data.base)
