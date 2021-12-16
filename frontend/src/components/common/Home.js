@@ -4,8 +4,6 @@ import React from 'react'
 
 const Home = () => {
 
-	
-	
 
 return (
   <section className="hero is-fullheight-with-navbar is-success">
